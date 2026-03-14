@@ -24,27 +24,27 @@ module Legion
           ].freeze
 
           RESONANCE_LABELS = {
-            (0.0..0.2)  => :minimal,
-            (0.2..0.4)  => :low,
-            (0.4..0.6)  => :moderate,
-            (0.6..0.8)  => :high,
-            (0.8..1.0)  => :deep
+            (0.0..0.2) => :minimal,
+            (0.2..0.4) => :low,
+            (0.4..0.6) => :moderate,
+            (0.6..0.8) => :high,
+            (0.8..1.0) => :deep
           }.freeze
 
           CONFIDENCE_LABELS = {
-            (0.0..0.2)  => :uncertain,
-            (0.2..0.4)  => :tentative,
-            (0.4..0.6)  => :plausible,
-            (0.6..0.8)  => :confident,
-            (0.8..1.0)  => :certain
+            (0.0..0.2) => :uncertain,
+            (0.2..0.4) => :tentative,
+            (0.4..0.6) => :plausible,
+            (0.6..0.8) => :confident,
+            (0.8..1.0) => :certain
           }.freeze
 
           EMPATHY_LABELS = {
-            (0.0..0.2)  => :detached,
-            (0.2..0.4)  => :aware,
-            (0.4..0.6)  => :attuned,
-            (0.6..0.8)  => :resonant,
-            (0.8..1.0)  => :immersed
+            (0.0..0.2) => :detached,
+            (0.2..0.4) => :aware,
+            (0.4..0.6) => :attuned,
+            (0.6..0.8) => :resonant,
+            (0.8..1.0) => :immersed
           }.freeze
 
           def self.label_for(labels_hash, value)

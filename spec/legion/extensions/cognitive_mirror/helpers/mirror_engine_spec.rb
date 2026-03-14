@@ -143,11 +143,11 @@ RSpec.describe Legion::Extensions::CognitiveMirror::Helpers::MirrorEngine do
     it 'decays resonance for all tracked agents' do
       engine.boost_resonance('agent-1')
       engine.boost_resonance('agent-2')
-      before_1 = engine.empathic_resonance('agent-1')
-      before_2 = engine.empathic_resonance('agent-2')
+      before_first  = engine.empathic_resonance('agent-1')
+      before_second = engine.empathic_resonance('agent-2')
       engine.decay_all_resonances
-      expect(engine.empathic_resonance('agent-1')).to be < before_1
-      expect(engine.empathic_resonance('agent-2')).to be < before_2
+      expect(engine.empathic_resonance('agent-1')).to be < before_first
+      expect(engine.empathic_resonance('agent-2')).to be < before_second
     end
   end
 

@@ -5,11 +5,21 @@ module Legion
     module CognitiveMirror
       module Helpers
         class MirrorEngine
+          INTENT_MAP = {
+            communication:        :inform_or_persuade,
+            decision:             :resolve_uncertainty,
+            emotional_expression: :signal_internal_state,
+            creative_act:         :generate_novelty,
+            analytical_task:      :reduce_uncertainty,
+            social_interaction:   :build_relationship,
+            movement:             :change_position
+          }.freeze
+
           attr_reader :events, :simulations, :resonance_map
 
           def initialize
-            @events       = []
-            @simulations  = []
+            @events        = []
+            @simulations   = []
             @resonance_map = Hash.new(Constants::DEFAULT_RESONANCE)
           end
 
@@ -67,7 +77,7 @@ module Legion
           end
 
           def simulation_accuracy_for(agent_id)
-            scored = simulations_for(agent_id).select { |s| !s.accuracy_score.nil? }
+            scored = simulations_for(agent_id).reject { |s| s.accuracy_score.nil? }
             return nil if scored.empty?
 
             scored.sum(&:accuracy_score) / scored.size.to_f
@@ -101,24 +111,15 @@ module Legion
 
           def derive_outcome(event)
             {
-              action_type:       event.action_type,
-              predicted_intent:  infer_intent(event),
-              emotional_echo:    event.emotional_valence,
-              context_keys:      event.context.keys
+              action_type:      event.action_type,
+              predicted_intent: infer_intent(event),
+              emotional_echo:   event.emotional_valence,
+              context_keys:     event.context.keys
             }
           end
 
           def infer_intent(event)
-            case event.action_type
-            when :communication      then :inform_or_persuade
-            when :decision           then :resolve_uncertainty
-            when :emotional_expression then :signal_internal_state
-            when :creative_act       then :generate_novelty
-            when :analytical_task    then :reduce_uncertainty
-            when :social_interaction then :build_relationship
-            when :movement           then :change_position
-            else                          :unknown_intent
-            end
+            INTENT_MAP.fetch(event.action_type, :unknown_intent)
           end
         end
       end

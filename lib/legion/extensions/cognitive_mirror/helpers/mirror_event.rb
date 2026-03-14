@@ -15,17 +15,17 @@ module Legion
             @action_type      = normalize_action_type(action_type)
             @context          = context.is_a?(Hash) ? context : {}
             @emotional_valence = emotional_valence.to_f.clamp(-1.0, 1.0)
-            @observed_at      = Time.now.utc
+            @observed_at = Time.now.utc
           end
 
           def to_h
             {
-              id:               @id,
-              agent_id:         @agent_id,
-              action_type:      @action_type,
-              context:          @context,
+              id:                @id,
+              agent_id:          @agent_id,
+              action_type:       @action_type,
+              context:           @context,
               emotional_valence: @emotional_valence,
-              observed_at:      @observed_at
+              observed_at:       @observed_at
             }
           end
 

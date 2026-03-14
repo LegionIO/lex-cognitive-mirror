@@ -9,16 +9,16 @@ Gem::Specification.new do |spec|
   spec.email         = ['matthewdiverson@gmail.com']
 
   spec.summary       = 'Mirror neuron simulation for LegionIO agents'
-  spec.description   = 'Mirror neuron simulation for LegionIO agents: observe, internally simulate, and build empathic resonance from other agents\' actions'
+  spec.description   = 'Mirror neuron simulation for LegionIO: observe, simulate, and build empathic resonance'
   spec.homepage      = 'https://github.com/LegionIO/lex-cognitive-mirror'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.4'
 
-  spec.metadata['homepage_uri']        = spec.homepage
-  spec.metadata['source_code_uri']     = spec.homepage
-  spec.metadata['documentation_uri']   = "#{spec.homepage}/blob/main/README.md"
-  spec.metadata['changelog_uri']       = "#{spec.homepage}/blob/main/CHANGELOG.md"
-  spec.metadata['bug_tracker_uri']     = "#{spec.homepage}/issues"
+  spec.metadata['homepage_uri']          = spec.homepage
+  spec.metadata['source_code_uri']       = spec.homepage
+  spec.metadata['documentation_uri']     = "#{spec.homepage}/blob/main/README.md"
+  spec.metadata['changelog_uri']         = "#{spec.homepage}/blob/main/CHANGELOG.md"
+  spec.metadata['bug_tracker_uri']       = "#{spec.homepage}/issues"
   spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.files = Dir.chdir(__dir__) do

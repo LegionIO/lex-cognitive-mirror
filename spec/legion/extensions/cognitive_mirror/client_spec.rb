@@ -30,8 +30,8 @@ RSpec.describe Legion::Extensions::CognitiveMirror::Client do
 
   it 'performs a full observe -> simulate -> resonance cycle' do
     obs_result = client.observe_action(
-      agent_id: 'agent-1',
-      action_type: :decision,
+      agent_id:          'agent-1',
+      action_type:       :decision,
       emotional_valence: 0.6
     )
     expect(obs_result[:success]).to be(true)
